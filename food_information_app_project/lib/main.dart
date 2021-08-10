@@ -1,14 +1,50 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp())
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title : 'Food Information',
+      theme:  ThemeData(
+        primaryColor: Colors.white,
+      ),
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Food Information',
+        style: TextStyle(
+          fontSize: 20
+        ),),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          
+        ),
+      ),
+      body: Column(
+        children: [
+          Center(
+            child: Text('Hello World',
+            style: TextStyle(
+              fontSize: 40
+            ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: null,
     );
   }
 }

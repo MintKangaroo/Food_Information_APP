@@ -1,16 +1,20 @@
-# food_information_app_project
+기능 {
+- 상품 정보(식당, 식품 등등) 기록하는 앱
 
-A new Flutter project.
+-카테고리 구분, 카테고리에 따라서 새로 상품 등록할 때 서로 다른 양식 불러옴 
 
-## Getting Started
+-상품 이름, 위치(위치 허용해서 바로 기록되면 좋을 듯), 
 
-This project is a starting point for a Flutter application.
+-대표 사진 등록 가능(별도로 다른 사진도 등록 가능함)
 
-A few resources to get you started if this is your first Flutter project:
+-코멘트 작성 가능(별점 기능 어떰)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-키워드 태그 기능
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-태그 검색 기능, 그냥 검색 기능
+}
+
+사용 언어 {
+프론트 엔드 : Flutter
+백엔드 : Django
+}

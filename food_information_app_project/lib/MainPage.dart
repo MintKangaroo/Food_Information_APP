@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'package:flutter/src/widgets/container.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -7,7 +7,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Food Information',
+          'Food Information', //TODO: "앱 이름 바꾸기"
           style: TextStyle(fontSize: 20),
         ),
       ),
@@ -16,18 +16,28 @@ class MainPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Center(
-            child: Text(
-              'Hello World',
-              style: TextStyle(fontSize: 40),
-            ),
+          Text(
+            'Hello World',
+            style: TextStyle(fontSize: 40),
           ),
+          Center(
+              child: Container(
+            width: 400,
+            height: 150,
+            color: Colors.red,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "컨테이너",
+                  style: TextStyle(fontSize: 30),
+                  textAlign: TextAlign.left,
+                ),
+              ],
+            ),
+          ))
         ],
       ),
-      bottomNavigationBar: null,
     );
   }
 }
-
-
- 

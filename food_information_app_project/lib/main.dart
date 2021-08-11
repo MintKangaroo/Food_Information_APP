@@ -8,9 +8,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Food Information', //TODO "앱이름 정해서 변경하기"
-      theme: ThemeData(
-        primaryColor: Colors.white,
+      title: 'Food Information', //TODO: 앱이름 정해서 변경하기
+      theme: ThemeData( 
+        primaryColor: Colors.white, //FIXME: 앱테마 컬러 고치ㅣ
       ),
       home: MainPage(),
     );

@@ -7,7 +7,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Food Information', //TODO: "앱 이름 바꾸기"
+          '오버쿡드', //TODO: "앱 이름 바꾸기"
           style: TextStyle(fontSize: 20),
         ),
       ),

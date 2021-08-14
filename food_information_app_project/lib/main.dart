@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'MainPage.dart';
+import 'SplashPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,11 +8,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Food Information', //TODO: 앱이름 정해서 변경하기
+      title: '오버쿡드', //TODO: 앱이름 정해서 변경하기
       theme: ThemeData( 
         primaryColor: Colors.white, //FIXME: 앱테마 컬러 고치기
+        visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      home: MainPage(),
+      home: SplashPage(),
     );
   }
 }

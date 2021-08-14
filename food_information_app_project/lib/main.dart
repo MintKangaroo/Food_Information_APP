@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'SplashPage.dart';
+import 'LoginPage.dart';
+import 'MainPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +15,12 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white, //FIXME: 앱테마 컬러 고치기
         visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      home: SplashPage(),
+      initialRoute: '/',
+      routes: { //TODO: 이용되는 모든 페이지 넣기
+        '/' : (context) => SplashPage(),
+        '/Login' : (context) => LoginPage(),
+        '/Main' : (context) => MainPage()
+      },
     );
   }
 }

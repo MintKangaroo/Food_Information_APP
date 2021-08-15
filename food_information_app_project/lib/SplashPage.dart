@@ -10,6 +10,7 @@ class SplashPage extends StatelessWidget {
     Timer(Duration(seconds: 3), () => Navigator.popAndPushNamed(context,  '/Main'));
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
           child: Text(
         'Splash',

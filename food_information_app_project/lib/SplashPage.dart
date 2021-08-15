@@ -7,7 +7,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData(primarySwatch: Colors.green);
-    Timer(Duration(seconds: 3), () => Navigator.pushNamed(context, '/Main'));
+    Timer(Duration(seconds: 3), () => Navigator.popAndPushNamed(context,  '/Main'));
 
     return Scaffold(
       body: Center(

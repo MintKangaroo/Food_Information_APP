@@ -1,14 +1,42 @@
+
 import 'package:flutter/material.dart';
 
-import 'SplashPage.dart';
 
-class LoginPage extends StatelessWidget {
+
+class LoginPage extends StatefulWidget {
   const LoginPage({ Key? key }) : super(key: key);
 
   @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-    );
+        body: SafeArea(
+      child: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              child: Text(
+                "로그인",
+                style: TextStyle(fontSize: 40),
+              ),
+            ),Container(
+              child: Column(
+                children: [
+
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    ));
   }
 }
+

@@ -3,9 +3,17 @@ import 'package:flutter/material.dart';
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var displayWidth = MediaQuery.of(context).size.width;
+    var displayHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
+    var Boxwidth = displayWidth * 0.8;
+    // ignore: non_constant_identifier_names
+    var Boxheight = displayHeight * 0.1;
+
     return Scaffold(
-      body: SafeArea(
-        child: Column(children: [
+        body: SafeArea(
+      child: Column(
+        children: [
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -63,9 +71,17 @@ class MainPage extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    width: 400,
-                    height: 200,
+                    width: Boxwidth,
+                    height: Boxheight,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(3.0, 3.0),
+                            blurRadius: 10.0,
+                            spreadRadius: 1.0,
+                          ),
+                        ],
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(color: Colors.black12, width: 3)),
@@ -74,9 +90,17 @@ class MainPage extends StatelessWidget {
                     height: 80,
                   ),
                   Container(
-                    width: 400,
-                    height: 200,
+                    width: Boxwidth,
+                    height: Boxheight,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(3.0, 3.0),
+                            blurRadius: 10.0,
+                            spreadRadius: 1.0,
+                          ),
+                        ],
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(color: Colors.black12, width: 3)),
@@ -85,9 +109,17 @@ class MainPage extends StatelessWidget {
                     height: 80,
                   ),
                   Container(
-                    width: 400,
-                    height: 200,
+                    width: Boxwidth,
+                    height: Boxheight,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(3.0, 3.0),
+                            blurRadius: 10.0,
+                            spreadRadius: 1.0,
+                          ),
+                        ],
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(color: Colors.black12, width: 3)),
@@ -97,11 +129,7 @@ class MainPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          FloatingActionButton(onPressed: (){
-
-          },
-          child: Icon(Icons.add)
-        ),
+          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
         ],
       ),
     ));

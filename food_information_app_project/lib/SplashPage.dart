@@ -6,16 +6,20 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var displayWidth = MediaQuery.of(context).size.width;
+    var imgwidth = displayWidth * 0.5;
+
     ThemeData(primarySwatch: Colors.green);
-    Timer(Duration(seconds: 3), () => Navigator.popAndPushNamed(context,  '/Main'));
+    Timer(Duration(seconds: 3),
+        () => Navigator.popAndPushNamed(context, '/Login'));
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Center(
-          child: Text(
-        'Splash',
-        style: TextStyle(fontSize: 50),
-      )),
-    );
+        resizeToAvoidBottomInset: false,
+        body: Center(
+            child: Image.asset(
+          'assets/logo.png',
+          width: imgwidth,
+          
+        )));
   }
 }

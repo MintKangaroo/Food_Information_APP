@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'SplashPage.dart';
 import 'LoginPage.dart';
 import 'MainPage.dart';
+import 'SignPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       routes: { //TODO: 이용되는 모든 페이지 넣기
         '/' : (context) => SplashPage(),
         '/Login' : (context) => LoginPage(),
-        '/Main' : (context) => MainPage()
+        '/Main' : (context) => MainPage(),
+        '/Sign' : (context) => SignPage()
       },
     );
   }

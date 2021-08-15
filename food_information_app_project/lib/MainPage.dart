@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({ Key? key }) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -90,7 +91,9 @@ class _MainPageState extends State<MainPage> {
                             suffixIcon: Icon(
                               Icons.search,
                               size: 30,
+                              
                             ),
+                            
                           ),
                         ),
                       ),
@@ -124,7 +127,7 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             Container(
               child: Center(
@@ -137,13 +140,26 @@ class _MainPageState extends State<MainPage> {
                       },
                       child: Container(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "음식점",
+                                "식재료",
                                 style: TextStyle(fontSize: 40),
                               ),
+                              Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(7),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.lunch_dining,
+                                      size: 70,
+                                    ),
+                                  )),
                             ],
                           ),
                         ),
@@ -159,7 +175,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                           ],
                           color: Colors.red[300],
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                     ),
@@ -172,13 +188,27 @@ class _MainPageState extends State<MainPage> {
                       },
                       child: Container(
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "요리",
+                                "패스트푸드",
                                 style: TextStyle(fontSize: 40),
                               ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(7),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Icon(
+                                    Icons.restaurant,
+                                    size: 70,
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -194,7 +224,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                           ],
                           color: Colors.yellow[300],
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                     ),
@@ -207,13 +237,27 @@ class _MainPageState extends State<MainPage> {
                       },
                       child: Container(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "레시피",
+                                "카페",
                                 style: TextStyle(fontSize: 40),
                               ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(7),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Icon(
+                                    Icons.local_cafe,
+                                    size: 70,
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -229,7 +273,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                           ],
                           color: Colors.orange[300],
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                     ),
@@ -256,5 +300,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-

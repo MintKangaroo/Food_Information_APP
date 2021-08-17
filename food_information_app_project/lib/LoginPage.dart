@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'LoginProcess.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -149,7 +150,6 @@ class _LoginPageState extends State<LoginPage> {
                         onChanged: (value) {
                           setState(() {
                             //Rebuild해주는 함수
-
                             _isChecked = !_isChecked;
                           });
                         },
@@ -159,9 +159,20 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      print(LoginIDtextController.text);
-                      print(LoginPWtextController.text);
-                      Navigator.popAndPushNamed(context, '/Main');
+                      String results = LoginProcessFun(
+                          LoginIDtextController.text,
+                          LoginPWtextController.text);
+                      print(results);
+                      if(results == "Sucess"){
+                        print(results);
+                        Navigator.popAndPushNamed(context, '/Main');
+                      }
+                      else{
+                        print(results);
+                        	ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('로그인에 실패했습니다.'),
+                        ));
+                      }
                     },
                     child: Container(
                       width: LoginBoxwidth,
@@ -194,3 +205,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+

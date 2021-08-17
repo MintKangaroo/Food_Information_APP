@@ -17,13 +17,8 @@ class SplashPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: Center(
             child: Image.asset(
-<<<<<<< HEAD
-          'assets/images/logo.png',
-=======
-          'assets/fishlogo.png',
->>>>>>> 077d66638e7d9e463375d71d0a176301c0c4cb14
+          'fishlogo.png',
           width: imgwidth,
-          
         )));
   }
 }

@@ -16,6 +16,9 @@ class _SettingState extends State<Setting> {
       setState(() {
         _selectedIndex = index;
       });
+    } else if (index == 1) {
+      _selectedIndex = index;
+      Navigator.pop(context);
     } else {
       setState(() {
         _selectedIndex = index;
@@ -27,10 +30,13 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Center(child: Text("SettingPage"))),
+      body: SafeArea(
+          child:
+              SingleChildScrollView(child: Center(child: Text("SettingPage")))),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.grey[300],
+        showUnselectedLabels: false,
+        backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
         onTap: (_onItemTapped),
         selectedItemColor: Colors.black,

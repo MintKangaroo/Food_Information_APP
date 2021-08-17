@@ -327,7 +327,7 @@ class _MainPageState extends State<MainPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
         onTap: (_onItemTapped),
         showUnselectedLabels: false,

@@ -16,7 +16,12 @@ class _CafePageState extends State<CafePage> {
       setState(() {
         _selectedIndex = index;
       });
-    } else {
+    }
+    else if (index == 1) {
+      _selectedIndex = index;
+      Navigator.pop(context);
+    }  
+    else {
       setState(() {
         _selectedIndex = index;
         Navigator.popAndPushNamed(context, _children[index]);
@@ -28,14 +33,17 @@ class _CafePageState extends State<CafePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-            child: Text(
-          "CafePage",
-          style: TextStyle(fontSize: 50),
-        )),
+        body: SingleChildScrollView(
+          child: Center(
+              child: Text(
+            "CafePage",
+            style: TextStyle(fontSize: 50),
+          )),
+        ),
         bottomNavigationBar: BottomNavigationBar(
+          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.grey[300],
+          backgroundColor: Colors.white,
           currentIndex: _selectedIndex,
           onTap: (_onItemTapped),
           selectedItemColor: Colors.black,

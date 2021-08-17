@@ -7,7 +7,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var displayWidth = MediaQuery.of(context).size.width;
-    var imgwidth = displayWidth * 0.5;
+    var imgwidth = displayWidth * 0.7;
 
     ThemeData(primarySwatch: Colors.green);
     Timer(Duration(seconds: 3),
@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: Center(
             child: Image.asset(
-          'fishlogo.png',
+          'assets/images/fishlogo.png',
           width: imgwidth,
         )));
   }

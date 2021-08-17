@@ -3,6 +3,10 @@ import 'SplashPage.dart';
 import 'LoginPage.dart';
 import 'MainPage.dart';
 import 'SignPage.dart';
+import 'RestaurantPage.dart';
+import 'CafePage.dart';
+import 'MyPage.dart';
+import 'Setting.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,8 +25,12 @@ class MyApp extends StatelessWidget {
         '/' : (context) => SplashPage(),
         '/Login' : (context) => LoginPage(),
         '/Main' : (context) => MainPage(),
-        '/Sign' : (context) => SignPage()
-      },
+        '/Sign' : (context) => SignPage(),
+        '/Restaurant' : (context) => RestaurantPage(),
+        '/Cafe' : (context) => CafePage(),
+        '/MyPage' : (context) => MyPage(),
+        '/Setting' : (context) => Setting()
+      }, 
     );
   }
 }

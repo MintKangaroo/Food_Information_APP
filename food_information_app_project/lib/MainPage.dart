@@ -8,7 +8,29 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
+
+
 class _MainPageState extends State<MainPage> {
+
+  int _selectedIndex = 0;
+  final List _children = ['/Main','/Restaurant','/Cafe', '/Setting'];
+
+  
+  void _onItemTapped(int index) {
+
+    if (index == _selectedIndex) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+    else{
+        setState(() {
+        _selectedIndex = index;
+        Navigator.pushNamed(context, _children[index]);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var displayWidth = MediaQuery.of(context).size.width;
@@ -16,16 +38,15 @@ class _MainPageState extends State<MainPage> {
     // ignore: non_constant_identifier_names
     var Boxwidth = displayWidth * 0.9;
     // ignore: non_constant_identifier_names
-    var Boxheight = displayHeight * 0.15;
+    var Boxheight = displayHeight * 0.26;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false, //키보드 밀리지 않도록
-      body: SingleChildScrollView(
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: SafeArea(
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: SafeArea(
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(
@@ -44,6 +65,7 @@ class _MainPageState extends State<MainPage> {
                           Text(
                             '오버쿡드',
                             style: TextStyle(
+                                fontFamily: "hahmlet",
                                 fontSize: 25,
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold),
@@ -57,7 +79,9 @@ class _MainPageState extends State<MainPage> {
                         child: IconButton(
                           icon: Icon(Icons.account_circle),
                           iconSize: 40,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/MyPage');
+                          },
                         ),
                       ),
                     )
@@ -84,7 +108,8 @@ class _MainPageState extends State<MainPage> {
                               ],
                               color: Colors.grey[300],
                               borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.black12, width: 3)),
+                              border:
+                                  Border.all(color: Colors.black12, width: 3)),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(20, 3, 0, 0),
                             child: TextField(
@@ -96,9 +121,7 @@ class _MainPageState extends State<MainPage> {
                                 suffixIcon: Icon(
                                   Icons.search,
                                   size: 30,
-                                  
                                 ),
-                                
                               ),
                             ),
                           ),
@@ -120,8 +143,9 @@ class _MainPageState extends State<MainPage> {
                             width: 30,
                           ),
                           Text(
-                            '카테고리',
+                            '오늘의 추천',
                             style: TextStyle(
+                                fontFamily: "hahmlet",
                                 fontSize: 35,
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold),
@@ -137,68 +161,20 @@ class _MainPageState extends State<MainPage> {
                 Container(
                   child: Center(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
                           onTap: () {
-                            print("Tap"); //Container 터치했을 때
+                            Navigator.pushNamed(context, '/Restaurant');
                           },
                           child: Container(
                             child: Padding(
-                              padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "식재료",
-                                    style: TextStyle(fontSize: 35),
-                                  ),
-                                  Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(7),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Icon(
-                                          Icons.lunch_dining,
-                                          size: 70,
-                                        ),
-                                      )),
-                                ],
-                              ),
-                            ),
-                            width: Boxwidth,
-                            height: Boxheight,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey,
-                                  offset: Offset(3.0, 3.0),
-                                  blurRadius: 10.0,
-                                  spreadRadius: 1.0,
-                                ),
-                              ],
-                              color: Colors.red[300],
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            print("Tap");
-                          },
-                          child: Container(
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "패스트푸드",
+                                    "식당",
                                     style: TextStyle(fontSize: 35),
                                   ),
                                   Container(
@@ -206,14 +182,50 @@ class _MainPageState extends State<MainPage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(7),
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.restaurant,
-                                        size: 70,
-                                      ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            height: displayHeight * 0.08,
+                                            width: displayWidth * 0.8,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text("맛집1"),
+                                              ],
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(18),
+                                            )),
+                                        SizedBox(
+                                          height: 22,
+                                        ),
+                                        Container(
+                                            height: displayHeight * 0.08,
+                                            width: displayWidth * 0.8,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text("맛집2"),
+                                              ],
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(18),
+                                            )),
+                                        SizedBox(
+                                          height: 5,
+                                        )
+                                      ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -238,33 +250,54 @@ class _MainPageState extends State<MainPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            print("Tap");
+                            Navigator.pushNamed(context, '/Cafe');
                           },
                           child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "카페",
-                                    style: TextStyle(fontSize: 35),
-                                  ),
-                                  Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "카페",
+                                  style: TextStyle(fontSize: 35),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                    height: displayHeight * 0.08,
+                                    width: displayWidth * 0.8,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text("맛집1"),
+                                      ],
+                                    ),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.circular(7),
+                                      borderRadius: BorderRadius.circular(18),
+                                    )),
+                                SizedBox(
+                                  height: 22,
+                                ),
+                                Container(
+                                    height: displayHeight * 0.08,
+                                    width: displayWidth * 0.8,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text("맛집1"),
+                                      ],
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.local_cafe,
-                                        size: 70,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(18),
+                                    )),
+                                SizedBox(
+                                  height: 5,
+                                )
+                              ],
                             ),
                             width: Boxwidth,
                             height: Boxheight,
@@ -293,13 +326,59 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.grey[300],
+        currentIndex: _selectedIndex,
+        onTap: (_onItemTapped),
+        showUnselectedLabels: false,
+        selectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            activeIcon: Icon(
+              Icons.home,
+              color: Colors.blue[700],
+            ),
+            icon: Icon(
+              Icons.home,
+              color: Colors.blue[400],
+              size: 30,
+            ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            activeIcon: Icon(
+              Icons.restaurant,
+              color: Colors.blue[700],
+            ),
+            icon: Icon(
+              Icons.restaurant,
+              color: Colors.blue[400],
+              size: 30,
+            ),
+            label: "Restaurant",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: Icon(
+              Icons.coffee,
+              color: Colors.blue[700],
+            ),
+            icon: Icon(
+              Icons.coffee,
+              color: Colors.blue[400],
+              size: 30,
+            ),
+            label: "Cafe",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: Icon(
+              Icons.settings,
+              color: Colors.blue[700],
+            ),
+            icon: Icon(
+              Icons.settings,
+              color: Colors.blue[400],
+              size: 30,
+            ),
             label: "Setting",
           ),
         ],

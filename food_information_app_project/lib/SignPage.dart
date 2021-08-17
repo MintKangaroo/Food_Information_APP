@@ -5,6 +5,15 @@ class SignPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
+    final SignIDtextController = new TextEditingController();
+    // ignore: non_constant_identifier_names
+    final TextEditingController SignPWtextController =
+        new TextEditingController();
+    // ignore: non_constant_identifier_names
+    final TextEditingController SignPWAAgaintextController =
+        new TextEditingController();
+
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
@@ -13,34 +22,37 @@ class SignPage extends StatelessWidget {
     var SignBoxHeight = displayHeight * 0.05;
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SingleChildScrollView(
-          child: GestureDetector(
-            onTap: (){
-              FocusScope.of(context).unfocus();
-            },
-            child: SafeArea(
-              child: Center(
-                child: Column(
+        body: GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: displayHeight * 0.2,
+                ),
+                Icon(
+                  Icons.person,
+                  size: 70,
+                  color: Color(0xff6B95BB),
+                ),
+                Text(
+                  "회원가입",
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xff6B95BB),
+                  ),
+                ),
+                SizedBox(
+                  height: displayHeight * 0.04,
+                ),
+                Form(
+                    child: Column(
                   children: [
-                    SizedBox(
-                      height: displayHeight * 0.2,
-                    ),
-                    Icon(
-                      Icons.person,
-                      size: 70,
-                      color: Color(0xff6B95BB),
-                    ),
-                    Text(
-                      "회원가입",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0xff6B95BB),
-                      ),
-                    ),
-                    SizedBox(
-                      height: displayHeight * 0.04,
-                    ),
                     Container(
                       width: SignBoxwidth,
                       decoration: BoxDecoration(
@@ -55,7 +67,9 @@ class SignPage extends StatelessWidget {
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: TextField(
+                      child: TextFormField(
+                        controller: SignIDtextController,
+                        textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: '아이디를 등록하세요.',
@@ -78,7 +92,10 @@ class SignPage extends StatelessWidget {
                               onPressed: () {
                                 print("Tap");
                               },
-                              child: Text("중복확인",style: TextStyle(fontSize: 15),)),
+                              child: Text(
+                                "중복확인",
+                                style: TextStyle(fontSize: 15),
+                              )),
                         ],
                       ),
                     ),
@@ -99,7 +116,9 @@ class SignPage extends StatelessWidget {
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: TextField(
+                      child: TextFormField(
+                        controller: SignPWtextController,
+                        textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -132,7 +151,9 @@ class SignPage extends StatelessWidget {
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: TextField(
+                      child: TextFormField(
+                        controller: SignPWAAgaintextController,
+                        textInputAction: TextInputAction.done,
                         keyboardType: TextInputType.text,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -151,40 +172,45 @@ class SignPage extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    SizedBox(
-                      height: displayHeight * 0.1,
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.popAndPushNamed(context, '/Login');
-                      },
-                      child: Container(
-                        width: SignBoxwidth,
-                        height: SignBoxHeight,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(3.0, 3.0),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
-                            ),
-                          ],
-                          color: Color(0xff6B95BB),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Center(
-                            child: Text(
-                          "회원가입",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        )),
-                      ),
-                    )
                   ],
+                )),
+                SizedBox(
+                  height: displayHeight * 0.1,
                 ),
-              ),
+                GestureDetector(
+                  onTap: () {
+                    print(SignIDtextController.text);
+                    print(SignPWtextController.text);
+                    print(SignPWAAgaintextController.text);
+                    Navigator.popAndPushNamed(context, '/Login');
+                  },
+                  child: Container(
+                    width: SignBoxwidth,
+                    height: SignBoxHeight,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(3.0, 3.0),
+                          blurRadius: 10.0,
+                          spreadRadius: 1.0,
+                        ),
+                      ],
+                      color: Color(0xff6B95BB),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Center(
+                        child: Text(
+                      "회원가입",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    )),
+                  ),
+                )
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    ));
   }
 }

@@ -1,16 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'package:admob_flutter/admob_flutter.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  // Initialize without device test ids
-  Admob.initialize();
-  // Add a list of test ids.
-  // Admob.initialize(testDeviceIds: ['YOUR DEVICE ID']);
-
-}
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -22,14 +13,10 @@ class MainPage extends StatefulWidget {
 
 
 class _MainPageState extends State<MainPage> {
-  AdmobBannerSize? bannerSize;
+
   int _selectedIndex = 0;
   final List _children = ['/Main','/Restaurant','/Cafe', '/Setting'];
 
-  void initState() {
-    super.initState();
-    bannerSize = AdmobBannerSize.FULL_BANNER;
-  }
   
   void _onItemTapped(int index) {
 

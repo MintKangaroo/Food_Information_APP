@@ -168,14 +168,11 @@ class _LoginPageState extends State<LoginPage> {
                       String results = LoginProcessFun(
                           LoginIDtextController.text,
                           LoginPWtextController.text);
-                      print(results);
                       if(results == "Sucess"){
-                        print(results);
                         DataSaveCheck.AutoLogin(LoginIDtextController.text, LoginPWtextController.text);
                         Navigator.popAndPushNamed(context, '/Main');
                       }
                       else{
-                        print(results);
                         	ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text('로그인에 실패했습니다.'),
                         ));

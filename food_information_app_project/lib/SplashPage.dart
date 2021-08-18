@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'UserData.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashPage extends StatefulWidget {
@@ -11,18 +10,17 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  var Next_Page = "";
+  String Next_Page = "";
 
   @override
   void initState() {
     super.initState();
     CheckData();
   }
-
+  //자동로그인 (기기에 저장돼있는 ID값 불러오는 함수)
   CheckData() async {
     final prefs = await SharedPreferences.getInstance();
     final ID = prefs.getString("ID") ?? "null";
-    print("$ID값이 들어있다.");
     if (ID != "null") {
       setState(() {
         Next_Page = "main";
@@ -39,7 +37,6 @@ class _SplashPageState extends State<SplashPage> {
     var displayWidth = MediaQuery.of(context).size.width;
     var imgwidth = displayWidth * 0.7;
     ThemeData(primarySwatch: Colors.green);
-    print(Next_Page);
     if (Next_Page == "main") {
       Timer(Duration(seconds: 2),
           () => Navigator.popAndPushNamed(context, '/Main'));
@@ -47,7 +44,7 @@ class _SplashPageState extends State<SplashPage> {
       Timer(Duration(seconds: 2),
           () => Navigator.popAndPushNamed(context, '/Login'));
     } else {
-      print("Nope");
+      print("Page 이동 Erroe in SplashPage ");
     }
 
     return Scaffold(

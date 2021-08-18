@@ -8,6 +8,7 @@ class CafePage extends StatefulWidget {
 }
 
 class _CafePageState extends State<CafePage> {
+  
   int _selectedIndex = 2;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
@@ -17,10 +18,7 @@ class _CafePageState extends State<CafePage> {
         _selectedIndex = index;
       });
     }
-    else if (index == 1) {
-      _selectedIndex = index;
-      Navigator.pop(context);
-    }  
+    
     else {
       setState(() {
         _selectedIndex = index;
@@ -31,13 +29,96 @@ class _CafePageState extends State<CafePage> {
 
   @override
   Widget build(BuildContext context) {
+    var displayWidth = MediaQuery.of(context).size.width;
+    var displayHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
+    var Boxwidth = displayWidth * 0.9;
+    // ignore: non_constant_identifier_names
+    var Boxheight = displayHeight * 0.2;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Center(
-              child: Text(
-            "CafePage",
-            style: TextStyle(fontSize: 50),
+              child: Column(
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "카페 추천",
+                style: TextStyle(fontSize: 40),
+              ),
+              SizedBox(height: 30,),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.yellow[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                width: Boxwidth,
+                height: Boxheight,
+                child: Row(
+                  children: [
+                    Text("카페 1",style: TextStyle(fontSize: 20),),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20,),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.yellow[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                width: Boxwidth,
+                height: Boxheight,
+                child: Row(
+                  children: [
+                    Text(
+                      "카페 2",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.yellow[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                width: Boxwidth,
+                height: Boxheight,
+                child: Row(
+                  children: [
+                    Text("카페 3",style: TextStyle(fontSize: 20),),
+                  ],
+                ),
+              ),]
           )),
         ),
         bottomNavigationBar: BottomNavigationBar(

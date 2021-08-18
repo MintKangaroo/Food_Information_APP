@@ -32,6 +32,8 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
+    var displayWidth = MediaQuery.of(context).size.width;
+    var displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -44,6 +46,7 @@ class _SettingState extends State<Setting> {
                 SystemChannels.platform.invokeMethod('SystemNavigator.pop');
               },
               child: Container(
+                color : Colors.red[100],
                 width: 300,
                 height: 300,
                 child: Text("로그아웃"),

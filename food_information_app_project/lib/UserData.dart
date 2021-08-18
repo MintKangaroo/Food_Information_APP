@@ -11,7 +11,6 @@ class UserData {
   CheckData() async {
     final prefs = await SharedPreferences.getInstance();
     final ID = prefs.getString("ID") ?? null;
-    print(ID);
     if (ID != null) {
       return "Sucess";
     } else {
@@ -23,12 +22,10 @@ class UserData {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString("ID", ID);
     prefs.setString("PW", PW);
-    print("자동로그인을 시작합니다.");
   }
 
   LogOutData() async {
     final prefs = await SharedPreferences.getInstance();
-    print("로그아웃됩니다.");
     prefs.clear();
   }
 }

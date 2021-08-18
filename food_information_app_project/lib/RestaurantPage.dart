@@ -8,7 +8,7 @@ class RestaurantPage extends StatefulWidget {
 }
 
 class _RestaurantPageState extends State<RestaurantPage> {
-
+  
   int _selectedIndex = 1;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
@@ -17,13 +17,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
       setState(() {
         _selectedIndex = index;
       });
-      
-    }
-    else if(index == 1){
-      _selectedIndex = index;
-      Navigator.pop(context);
-    } 
-    else {
+    } else {
       setState(() {
         _selectedIndex = index;
         Navigator.popAndPushNamed(context, _children[index]);
@@ -31,16 +25,100 @@ class _RestaurantPageState extends State<RestaurantPage> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
+    var displayWidth = MediaQuery.of(context).size.width;
+    var displayHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
+    var Boxwidth = displayWidth * 0.9;
+    // ignore: non_constant_identifier_names
+    var Boxheight = displayHeight * 0.2;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Center(
-              child: Text(
-            "RestaurantPage",
-            style: TextStyle(fontSize: 50),
+              child: Column(
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "식당 추천",
+                style: TextStyle(fontSize: 40),
+              ),
+              SizedBox(height: 30,),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.yellow[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                width: Boxwidth,
+                height: Boxheight,
+                child: Row(
+                  children: [
+                    Text("맛집 1",style: TextStyle(fontSize: 20),),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20,),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.yellow[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                width: Boxwidth,
+                height: Boxheight,
+                child: Row(
+                  children: [
+                    Text(
+                      "맛집 2",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.yellow[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                width: Boxwidth,
+                height: Boxheight,
+                child: Row(
+                  children: [
+                    Text("맛집 3",style: TextStyle(fontSize: 20),),
+                  ],
+                ),
+              ),
+            ],
           )),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -102,7 +180,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
           ],
         ),
       ),
-      
     );
   }
 }

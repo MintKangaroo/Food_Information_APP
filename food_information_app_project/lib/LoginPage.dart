@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'LoginProcess.dart';
+import 'UserData.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,6 +18,10 @@ class _LoginPageState extends State<LoginPage> {
       new TextEditingController();
 
   bool _isChecked = false;
+  var DataSaveCheck = new UserData();
+
+  
+
   @override
   Widget build(BuildContext context) {
     var displayWidth = MediaQuery.of(context).size.width;
@@ -165,6 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                       print(results);
                       if(results == "Sucess"){
                         print(results);
+                        DataSaveCheck.AutoLogin(LoginIDtextController.text, LoginPWtextController.text);
                         Navigator.popAndPushNamed(context, '/Main');
                       }
                       else{
@@ -205,5 +212,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
 
 

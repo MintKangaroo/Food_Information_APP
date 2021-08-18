@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'UserData.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -8,6 +10,7 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  var DataSaveCheck = new UserData();
   int _selectedIndex = 3;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
@@ -31,8 +34,22 @@ class _SettingState extends State<Setting> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child:
-              SingleChildScrollView(child: Center(child: Text("SettingPage")))),
+          child: SingleChildScrollView(
+              child: Column(
+        children: [
+          Center(child: Text("SettingPage")),
+          GestureDetector(
+              onTap: () {
+                DataSaveCheck.LogOutData();
+                SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+              },
+              child: Container(
+                width: 300,
+                height: 300,
+                child: Text("로그아웃"),
+              ))
+        ],
+      ))),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         showUnselectedLabels: false,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'SignProcess.dart';
 
 class SignPage extends StatelessWidget {
   const SignPage({Key? key}) : super(key: key);
@@ -179,10 +180,15 @@ class SignPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    print(SignIDtextController.text);
-                    print(SignPWtextController.text);
-                    print(SignPWAAgaintextController.text);
-                    Navigator.popAndPushNamed(context, '/Login');
+                    String results = SignProcess(SignIDtextController.text, SignPWtextController.text, SignPWAAgaintextController.text);
+
+                    if(results == "Sucess"){
+                      Navigator.popAndPushNamed(context, '/Login');
+                    }
+                    else{
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('회원가입에 실패했습니다.')));
+                    }
                   },
                   child: Container(
                     width: SignBoxwidth,

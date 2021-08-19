@@ -80,7 +80,9 @@ flutter:
     - family: hahmlet
       fonts:
         - asset: assets/fonts/hahmlet_font.ttf
-
+    - family: dohyeon
+      fonts:
+        - asset: assets/fonts/DoHyeon-Regular.ttf
 
   
   # For details regarding fonts from package dependencies,

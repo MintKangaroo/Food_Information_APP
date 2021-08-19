@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -10,6 +13,51 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
+  final String iOSTestId = 'ca-app-pub-3940256099942544/2934735716';
+  final String androidTestId = 'ca-app-pub-3940256099942544/6300978111';
+
+  late InterstitialAd interstitial;
+
+   void createInterstitialAd() {
+    interstitial = InterstitialAd(
+      adUnitId: InterstitialAd.testAdUnitId,
+      request: AdRequest(),
+      listener: AdListener(
+        // Called when an ad is successfully received.
+        onAdLoaded: (Ad ad) => print('${ad.runtimeType} loaded.'),
+        // Called when an ad request failed.
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          print('${ad.runtimeType} failed to load: $error');
+        },
+        // Called when an ad opens an overlay that covers the screen.
+        onAdOpened: (Ad ad) => print('${ad.runtimeType} opened.'),
+        // Called when an ad removes an overlay that covers the screen.
+        onAdClosed: (Ad ad) {
+          print('${ad.runtimeType} closed');
+          ad.dispose();
+          SystemChannels.platform
+                          .invokeMethod('SystemNavigator.pop');
+        },
+        // Called when an ad is in the process of leaving the application.
+        onApplicationExit: (Ad ad) => print('Left application.'),
+      ),
+    )..load();
+  }
+  @override
+  void initState() {
+    super.initState();
+    //load ads
+    createInterstitialAd();
+  }
+
+  @override
+  void dispose() {
+    interstitial.dispose();
+    super.dispose();
+  }
+
+
   int _selectedIndex = 0;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
@@ -66,8 +114,7 @@ class _MainPageState extends State<MainPage> {
                   new FlatButton(
                     child: new Text("확인"),
                     onPressed: () {
-                      SystemChannels.platform
-                          .invokeMethod('SystemNavigator.pop');
+                      onPressedInterstitialAdButton();
                     },
                   ),
                 ],
@@ -421,5 +468,9 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
+    
+  }
+  void onPressedInterstitialAdButton() {
+    interstitial.show();
   }
 }

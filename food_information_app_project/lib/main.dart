@@ -7,8 +7,14 @@ import 'RestaurantPage.dart';
 import 'CafePage.dart';
 import 'MyPage.dart';
 import 'Setting.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

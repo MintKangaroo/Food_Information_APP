@@ -19,9 +19,6 @@ class _SettingState extends State<Setting> {
       setState(() {
         _selectedIndex = index;
       });
-    } else if (index == 1) {
-      _selectedIndex = index;
-      Navigator.pop(context);
     } else {
       setState(() {
         _selectedIndex = index;

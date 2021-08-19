@@ -147,7 +147,7 @@ class _MainPageState extends State<MainPage> {
                             Text(
                               '오버쿡드',
                               style: TextStyle(
-                                  fontFamily: "hahmlet",
+                                  fontFamily: "dohyeon",
                                   fontSize: 25,
                                   color: Colors.blue,
                                   fontWeight: FontWeight.bold),
@@ -227,7 +227,7 @@ class _MainPageState extends State<MainPage> {
                             Text(
                               '오늘의 추천',
                               style: TextStyle(
-                                  fontFamily: "hahmlet",
+                                  fontFamily: "dohyeon",
                                   fontSize: 35,
                                   color: Colors.blue,
                                   fontWeight: FontWeight.bold),

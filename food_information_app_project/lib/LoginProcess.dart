@@ -7,6 +7,4 @@ String LoginProcessFun(String ID, String Pw) {
   else{
     return "Sucess";
   }
-
-  
 }

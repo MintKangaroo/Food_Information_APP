@@ -8,7 +8,6 @@ class RestaurantPage extends StatefulWidget {
 }
 
 class _RestaurantPageState extends State<RestaurantPage> {
-  
   int _selectedIndex = 1;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
@@ -47,7 +46,9 @@ class _RestaurantPageState extends State<RestaurantPage> {
                 "식당 추천",
                 style: TextStyle(fontSize: 40),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Container(
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -65,11 +66,16 @@ class _RestaurantPageState extends State<RestaurantPage> {
                 height: Boxheight,
                 child: Row(
                   children: [
-                    Text("맛집 1",style: TextStyle(fontSize: 20),),
+                    Text(
+                      "맛집 1",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Container(
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -114,7 +120,10 @@ class _RestaurantPageState extends State<RestaurantPage> {
                 height: Boxheight,
                 child: Row(
                   children: [
-                    Text("맛집 3",style: TextStyle(fontSize: 20),),
+                    Text(
+                      "맛집 3",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ],
                 ),
               ),

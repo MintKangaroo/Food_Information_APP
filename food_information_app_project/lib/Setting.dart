@@ -46,7 +46,7 @@ class _SettingState extends State<Setting> {
                 SystemChannels.platform.invokeMethod('SystemNavigator.pop');
               },
               child: Container(
-                color : Colors.red[100],
+                color: Colors.red[100],
                 width: 300,
                 height: 300,
                 child: Text("로그아웃"),

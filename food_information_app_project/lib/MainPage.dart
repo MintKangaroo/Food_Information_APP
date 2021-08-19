@@ -9,23 +9,17 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-
-
 class _MainPageState extends State<MainPage> {
-  
   int _selectedIndex = 0;
-  final List _children = ['/Main','/Restaurant','/Cafe', '/Setting'];
+  final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
-  
   void _onItemTapped(int index) {
-
     if (index == _selectedIndex) {
       setState(() {
         _selectedIndex = index;
       });
-    }
-    else{
-        setState(() {
+    } else {
+      setState(() {
         _selectedIndex = index;
         Navigator.pushNamed(context, _children[index]);
       });
@@ -42,7 +36,7 @@ class _MainPageState extends State<MainPage> {
     var Boxheight = displayHeight * 0.26;
 
     return WillPopScope(
-      onWillPop: () async{
+      onWillPop: () async {
         showDialog(
             context: context,
             //barrierDismissible - Dialog를 제외한 다른 화면 터치 x
@@ -64,7 +58,7 @@ class _MainPageState extends State<MainPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Dialog Content",
+                      "앱을 종료하시겠습니까?",
                     ),
                   ],
                 ),
@@ -72,13 +66,14 @@ class _MainPageState extends State<MainPage> {
                   new FlatButton(
                     child: new Text("확인"),
                     onPressed: () {
-                      SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                      SystemChannels.platform
+                          .invokeMethod('SystemNavigator.pop');
                     },
                   ),
                 ],
               );
             });
-            return false;
+        return false;
       },
       child: Scaffold(
         body: GestureDetector(
@@ -148,16 +143,16 @@ class _MainPageState extends State<MainPage> {
                                 ],
                                 color: Colors.grey[300],
                                 borderRadius: BorderRadius.circular(30),
-                                border:
-                                    Border.all(color: Colors.black12, width: 3)),
+                                border: Border.all(
+                                    color: Colors.black12, width: 3)),
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(20, 3, 0, 0),
                               child: TextField(
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: '검색어를 입력하세요.',
-                                  hintStyle:
-                                      TextStyle(color: Colors.blue, fontSize: 18),
+                                  hintStyle: TextStyle(
+                                      color: Colors.blue, fontSize: 18),
                                   suffixIcon: Icon(
                                     Icons.search,
                                     size: 30,
@@ -294,7 +289,8 @@ class _MainPageState extends State<MainPage> {
                             },
                             child: Container(
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     "카페",

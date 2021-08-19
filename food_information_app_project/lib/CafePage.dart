@@ -8,7 +8,6 @@ class CafePage extends StatefulWidget {
 }
 
 class _CafePageState extends State<CafePage> {
-  
   int _selectedIndex = 2;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
@@ -17,9 +16,7 @@ class _CafePageState extends State<CafePage> {
       setState(() {
         _selectedIndex = index;
       });
-    }
-    
-    else {
+    } else {
       setState(() {
         _selectedIndex = index;
         Navigator.popAndPushNamed(context, _children[index]);
@@ -39,87 +36,96 @@ class _CafePageState extends State<CafePage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Center(
-              child: Column(
-            children: [
-              SizedBox(
-                height: 30,
+              child: Column(children: [
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "카페 추천",
+              style: TextStyle(fontSize: 40),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 10.0,
+                    spreadRadius: 1.0,
+                  ),
+                ],
+                color: Colors.yellow[300],
+                borderRadius: BorderRadius.circular(15),
               ),
-              Text(
-                "카페 추천",
-                style: TextStyle(fontSize: 40),
+              width: Boxwidth,
+              height: Boxheight,
+              child: Row(
+                children: [
+                  Text(
+                    "카페 1",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
               ),
-              SizedBox(height: 30,),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.yellow[300],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                width: Boxwidth,
-                height: Boxheight,
-                child: Row(
-                  children: [
-                    Text("카페 1",style: TextStyle(fontSize: 20),),
-                  ],
-                ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 10.0,
+                    spreadRadius: 1.0,
+                  ),
+                ],
+                color: Colors.yellow[300],
+                borderRadius: BorderRadius.circular(15),
               ),
-              SizedBox(height: 20,),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.yellow[300],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                width: Boxwidth,
-                height: Boxheight,
-                child: Row(
-                  children: [
-                    Text(
-                      "카페 2",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
+              width: Boxwidth,
+              height: Boxheight,
+              child: Row(
+                children: [
+                  Text(
+                    "카페 2",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 20,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 10.0,
+                    spreadRadius: 1.0,
+                  ),
+                ],
+                color: Colors.yellow[300],
+                borderRadius: BorderRadius.circular(15),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.yellow[300],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                width: Boxwidth,
-                height: Boxheight,
-                child: Row(
-                  children: [
-                    Text("카페 3",style: TextStyle(fontSize: 20),),
-                  ],
-                ),
-              ),]
-          )),
+              width: Boxwidth,
+              height: Boxheight,
+              child: Row(
+                children: [
+                  Text(
+                    "카페 3",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
+            ),
+          ])),
         ),
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,

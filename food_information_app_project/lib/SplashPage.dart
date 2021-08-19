@@ -17,6 +17,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     CheckData();
   }
+
   //자동로그인 (기기에 저장돼있는 ID값 불러오는 함수)
   CheckData() async {
     final prefs = await SharedPreferences.getInstance();

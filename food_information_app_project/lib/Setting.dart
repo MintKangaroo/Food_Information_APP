@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'UserData.dart';
-import 'MainPage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class Setting extends StatefulWidget {
@@ -82,7 +81,6 @@ class _SettingState extends State<Setting> {
           GestureDetector(
               onTap: () {
                 DataSaveCheck.LogOutData();
-                SystemChannels.platform.invokeMethod('SystemNavigator.pop');
                 onPressedInterstitialAdButton();
               },
               child: Container(

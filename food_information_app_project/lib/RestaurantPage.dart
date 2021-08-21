@@ -11,6 +11,8 @@ class _RestaurantPageState extends State<RestaurantPage> {
   int _selectedIndex = 1;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
+  
+
   void _onItemTapped(int index) {
     if (index == _selectedIndex) {
       setState(() {
@@ -33,103 +35,45 @@ class _RestaurantPageState extends State<RestaurantPage> {
     // ignore: non_constant_identifier_names
     var Boxheight = displayHeight * 0.2;
 
+    var _listView = ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: 5,
+      itemBuilder: (BuildContext context, int index) {
+        return Column(
+          children: [
+            SizedBox(height: 20,),
+            ListTile(
+              onTap: (){},
+              leading: Container(
+                height: displayHeight * 0.1,
+                width:  displayWidth,
+                child: Row(
+                  children: [Icon(Icons.food_bank),
+                    Text("맛집 $index",style: TextStyle(fontSize: 20),),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(3.0, 3.0),
+                          blurRadius: 10.0,
+                          spreadRadius: 1.0,
+                        ),
+                      ],
+                      color: Colors.yellow,
+                      borderRadius: BorderRadius.circular(20),
+                      )
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Center(
-              child: Column(
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                "식당 추천",
-                style: TextStyle(fontSize: 40),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.yellow[300],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                width: Boxwidth,
-                height: Boxheight,
-                child: Row(
-                  children: [
-                    Text(
-                      "맛집 1",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.yellow[300],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                width: Boxwidth,
-                height: Boxheight,
-                child: Row(
-                  children: [
-                    Text(
-                      "맛집 2",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.yellow[300],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                width: Boxwidth,
-                height: Boxheight,
-                child: Row(
-                  children: [
-                    Text(
-                      "맛집 3",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )),
-        ),
+        body: _listView,
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,

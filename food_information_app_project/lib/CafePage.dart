@@ -44,9 +44,9 @@ class _CafePageState extends State<CafePage> {
             SizedBox(
               height: 20,
             ),
-            ListTile(
+            GestureDetector(
               onTap: (){},
-              leading: Container(
+              child: Container(
                   height: displayHeight * 0.1,
                   width: displayWidth,
                   child: Row(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'UserData.dart';
+import 'MainPage.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -13,6 +15,46 @@ class _SettingState extends State<Setting> {
   var DataSaveCheck = new UserData();
   int _selectedIndex = 3;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
+
+  late InterstitialAd interstitial;
+
+  void createInterstitialAd() {
+    interstitial = InterstitialAd(
+      adUnitId: InterstitialAd.testAdUnitId,
+      request: AdRequest(),
+      listener: AdListener(
+        // Called when an ad is successfully received.
+        onAdLoaded: (Ad ad) => print('${ad.runtimeType} loaded.'),
+        // Called when an ad request failed.
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          print('${ad.runtimeType} failed to load: $error');
+        },
+        // Called when an ad opens an overlay that covers the screen.
+        onAdOpened: (Ad ad) => print('${ad.runtimeType} opened.'),
+        // Called when an ad removes an overlay that covers the screen.
+        onAdClosed: (Ad ad) {
+          print('${ad.runtimeType} closed');
+          ad.dispose();
+          SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+        },
+        // Called when an ad is in the process of leaving the application.
+        onApplicationExit: (Ad ad) => print('Left application.'),
+      ),
+    )..load();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //load ads
+    createInterstitialAd();
+  }
+
+  @override
+  void dispose() {
+    interstitial.dispose();
+    super.dispose();
+  }
 
   void _onItemTapped(int index) {
     if (index == _selectedIndex) {
@@ -41,6 +83,7 @@ class _SettingState extends State<Setting> {
               onTap: () {
                 DataSaveCheck.LogOutData();
                 SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                onPressedInterstitialAdButton();
               },
               child: Container(
                 color: Colors.red[100],
@@ -110,4 +153,9 @@ class _SettingState extends State<Setting> {
       ),
     );
   }
+  void onPressedInterstitialAdButton() {
+    interstitial.show();
+  }
 }
+
+

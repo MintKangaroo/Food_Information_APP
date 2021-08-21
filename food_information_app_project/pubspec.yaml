@@ -30,6 +30,10 @@ dependencies:
   shared_preferences: ^2.0.6
   google_mobile_ads: ^0.11.0+4
   plugin_platform_interface: ^2.0.1
+  firebase_core: ^1.5.0
+  # firebase_analytics: ^5.0.2
+  # firebase_auth: ^0.14.0+5
+  cloud_firestore: ^2.5.0
 
 
 

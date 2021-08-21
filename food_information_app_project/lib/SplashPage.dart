@@ -36,7 +36,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     var displayWidth = MediaQuery.of(context).size.width;
-    var imgwidth = displayWidth * 0.7;
+    var imgwidth = displayWidth * 0.8;
     ThemeData(primarySwatch: Colors.green);
     if (Next_Page == "main") {
       Timer(Duration(seconds: 2),

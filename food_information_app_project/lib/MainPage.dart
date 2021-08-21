@@ -14,8 +14,8 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
-  final String iOSTestId = 'ca-app-pub-3940256099942544/2934735716';
-  final String androidTestId = 'ca-app-pub-3940256099942544/6300978111';
+  final String iOSAdId = 'ca-app-pub-3940256099942544/2934735716';
+  final String androidAdId = 'ca-app-pub-3940256099942544/6300978111';
 
   late InterstitialAd interstitial;
 
@@ -76,6 +76,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
@@ -97,7 +98,7 @@ class _MainPageState extends State<MainPage> {
                 //Dialog Main Title
                 title: Column(
                   children: <Widget>[
-                    new Text("Dialog Title"),
+                    new Text("종료"),
                   ],
                 ),
                 //
@@ -123,11 +124,12 @@ class _MainPageState extends State<MainPage> {
         return false;
       },
       child: Scaffold(
-        body: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: SafeArea(
+        body: SafeArea(
+          child: GestureDetector(
+            onTap:(){
+              //키보드가 아닌 부분을 눌렀을 때 키보드 사라짐
+              FocusScope.of(context).unfocus();
+            },
             child: SingleChildScrollView(
               child: Column(
                 children: [

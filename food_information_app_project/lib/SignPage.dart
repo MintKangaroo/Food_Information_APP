@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'SignProcess.dart';
 
-class SignPage extends StatelessWidget {
+class SignPage extends StatefulWidget {
   const SignPage({Key? key}) : super(key: key);
+
+  @override
+  _SignPageState createState() => _SignPageState();
+}
+
+class _SignPageState extends State<SignPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -180,14 +186,17 @@ class SignPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    String results = SignProcess(SignIDtextController.text, SignPWtextController.text, SignPWAAgaintextController.text);
-
-                    if(results == "Sucess"){
+                    String results = SignProcess(
+                        SignIDtextController.text,
+                        SignPWtextController.text,
+                        SignPWAAgaintextController.text);
+                    if (results == "Sucess") {
+                      print("데이터가 데이터 베이스로 옮겨집니다.");
+                      //TODO: FireBase데이터베이스를 이용하여 회원가입 구현
                       Navigator.popAndPushNamed(context, '/Login');
-                    }
-                    else{
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text('회원가입에 실패했습니다.')));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('회원가입에 실패했습니다.')));
                     }
                   },
                   child: Container(

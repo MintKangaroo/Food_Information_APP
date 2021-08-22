@@ -24,8 +24,6 @@ class _CafePageState extends State<CafePage> {
     }
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     var displayWidth = MediaQuery.of(context).size.width;
@@ -45,7 +43,9 @@ class _CafePageState extends State<CafePage> {
               height: 20,
             ),
             GestureDetector(
-              onTap: (){},
+              onTap: () {
+                print("카페 $index");
+              },
               child: Container(
                   height: displayHeight * 0.1,
                   width: displayWidth,

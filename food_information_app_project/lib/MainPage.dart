@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -13,13 +12,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   final String iOSAdId = 'ca-app-pub-3940256099942544/2934735716';
   final String androidAdId = 'ca-app-pub-3940256099942544/6300978111';
 
   late InterstitialAd interstitial;
 
-   void createInterstitialAd() {
+  void createInterstitialAd() {
     interstitial = InterstitialAd(
       adUnitId: InterstitialAd.testAdUnitId,
       request: AdRequest(),
@@ -36,14 +34,14 @@ class _MainPageState extends State<MainPage> {
         onAdClosed: (Ad ad) {
           print('${ad.runtimeType} closed');
           ad.dispose();
-          SystemChannels.platform
-                          .invokeMethod('SystemNavigator.pop');
+          SystemChannels.platform.invokeMethod('SystemNavigator.pop');
         },
         // Called when an ad is in the process of leaving the application.
         onApplicationExit: (Ad ad) => print('Left application.'),
       ),
     )..load();
   }
+
   @override
   void initState() {
     super.initState();
@@ -56,7 +54,6 @@ class _MainPageState extends State<MainPage> {
     interstitial.dispose();
     super.dispose();
   }
-
 
   int _selectedIndex = 0;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
@@ -76,7 +73,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
@@ -126,7 +122,7 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         body: SafeArea(
           child: GestureDetector(
-            onTap:(){
+            onTap: () {
               //키보드가 아닌 부분을 눌렀을 때 키보드 사라짐
               FocusScope.of(context).unfocus();
             },
@@ -470,8 +466,8 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
-    
   }
+
   void onPressedInterstitialAdButton() {
     interstitial.show();
   }

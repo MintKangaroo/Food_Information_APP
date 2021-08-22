@@ -11,8 +11,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
   int _selectedIndex = 1;
   final List _children = ['/Main', '/Restaurant', '/Cafe', '/Setting'];
 
-  
-
   void _onItemTapped(int index) {
     if (index == _selectedIndex) {
       setState(() {
@@ -41,30 +39,37 @@ class _RestaurantPageState extends State<RestaurantPage> {
       itemBuilder: (BuildContext context, int index) {
         return Column(
           children: [
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             GestureDetector(
-              onTap: (){},
+              onTap: () {
+                print("맛집 $index");
+              },
               child: Container(
-                height: displayHeight * 0.1,
-                width:  displayWidth,
-                child: Row(
-                  children: [Icon(Icons.food_bank),
-                    Text("맛집 $index",style: TextStyle(fontSize: 20),),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(3.0, 3.0),
-                          blurRadius: 10.0,
-                          spreadRadius: 1.0,
-                        ),
-                      ],
-                      color: Colors.yellow,
-                      borderRadius: BorderRadius.circular(20),
-                      )
-              ),
+                  height: displayHeight * 0.1,
+                  width: displayWidth,
+                  child: Row(
+                    children: [
+                      Icon(Icons.food_bank),
+                      Text(
+                        "맛집 $index",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(3.0, 3.0),
+                        blurRadius: 10.0,
+                        spreadRadius: 1.0,
+                      ),
+                    ],
+                    color: Colors.yellow,
+                    borderRadius: BorderRadius.circular(20),
+                  )),
             ),
           ],
         );

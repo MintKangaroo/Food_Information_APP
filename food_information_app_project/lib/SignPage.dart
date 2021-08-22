@@ -9,7 +9,6 @@ class SignPage extends StatefulWidget {
 }
 
 class _SignPageState extends State<SignPage> {
-
   @override
   Widget build(BuildContext context) {
     // ignore: non_constant_identifier_names

@@ -9,16 +9,13 @@ class MyPage extends StatelessWidget {
     var displayHeight = MediaQuery.of(context).size.height;
     return SafeArea(
         child: Scaffold(
-          appBar: (
-            
-            AppBar(
-              elevation: 0,
-              backgroundColor: Colors.white,
-            )
-          ),
+      appBar: (AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+      )),
       body: SingleChildScrollView(
         child: Container(
-          color : Colors.white,
+          color: Colors.white,
           child: Column(
             children: [
               Padding(
@@ -47,16 +44,17 @@ class MyPage extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(3.0, 3.0),
-                        blurRadius: 10.0,
-                        spreadRadius: 1.0,
-                      ),
-                    ],
-                    color: Colors.red[200],
-                    borderRadius: BorderRadius.circular(30),),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(3.0, 3.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                  color: Colors.red[200],
+                  borderRadius: BorderRadius.circular(30),
+                ),
                 width: displayWidth * 0.95,
                 height: displayHeight * 0.1,
                 child: Column(
@@ -75,7 +73,9 @@ class MyPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Container(
                 decoration: BoxDecoration(
                   boxShadow: [

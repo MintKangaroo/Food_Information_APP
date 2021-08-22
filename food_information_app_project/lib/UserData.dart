@@ -1,13 +1,6 @@
-
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
-
-
-
 class UserData {
-
   // ignore: non_constant_identifier_names
   String ID = "";
   // ignore: non_constant_identifier_names

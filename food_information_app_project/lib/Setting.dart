@@ -151,9 +151,8 @@ class _SettingState extends State<Setting> {
       ),
     );
   }
+
   void onPressedInterstitialAdButton() {
     interstitial.show();
   }
 }
-
-

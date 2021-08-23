@@ -249,64 +249,66 @@ class _MainPageState extends State<MainPage> {
                             child: Container(
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 10),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "식당",
-                                      style: TextStyle(fontSize: 35),
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(7),
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "식당",
+                                        style: TextStyle(fontSize: 35),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Column(
-                                        children: [
-                                          Container(
-                                              height: displayHeight * 0.08,
-                                              width: displayWidth * 0.8,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text("맛집1"),
-                                                ],
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(18),
-                                              )),
-                                          SizedBox(
-                                            height: 22,
-                                          ),
-                                          Container(
-                                              height: displayHeight * 0.08,
-                                              width: displayWidth * 0.8,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text("맛집2"),
-                                                ],
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(18),
-                                              )),
-                                          SizedBox(
-                                            height: 5,
-                                          )
-                                        ],
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(7),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                                height: displayHeight * 0.08,
+                                                width: displayWidth * 0.8,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text("맛집1"),
+                                                  ],
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(18),
+                                                )),
+                                            SizedBox(
+                                              height: 22,
+                                            ),
+                                            Container(
+                                                height: displayHeight * 0.08,
+                                                width: displayWidth * 0.8,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text("맛집2"),
+                                                  ],
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(18),
+                                                )),
+                                            SizedBox(
+                                              height: 5,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               width: Boxwidth,
@@ -333,52 +335,54 @@ class _MainPageState extends State<MainPage> {
                               Navigator.pushNamed(context, '/Cafe');
                             },
                             child: Container(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "카페",
-                                    style: TextStyle(fontSize: 35),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Container(
-                                      height: displayHeight * 0.08,
-                                      width: displayWidth * 0.8,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text("맛집1"),
-                                        ],
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(18),
-                                      )),
-                                  SizedBox(
-                                    height: 22,
-                                  ),
-                                  Container(
-                                      height: displayHeight * 0.08,
-                                      width: displayWidth * 0.8,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text("맛집1"),
-                                        ],
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(18),
-                                      )),
-                                  SizedBox(
-                                    height: 5,
-                                  )
-                                ],
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "카페",
+                                      style: TextStyle(fontSize: 35),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Container(
+                                        height: displayHeight * 0.08,
+                                        width: displayWidth * 0.8,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text("맛집1"),
+                                          ],
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(18),
+                                        )),
+                                    SizedBox(
+                                      height: 22,
+                                    ),
+                                    Container(
+                                        height: displayHeight * 0.08,
+                                        width: displayWidth * 0.8,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text("맛집1"),
+                                          ],
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(18),
+                                        )),
+                                    SizedBox(
+                                      height: 5,
+                                    )
+                                  ],
+                                ),
                               ),
                               width: Boxwidth,
                               height: Boxheight,
